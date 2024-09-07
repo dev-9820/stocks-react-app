@@ -15,12 +15,12 @@ function App() {
   }, []);
 
   const fetchStocks = async () => {
-    const response = await axios.get('http://localhost:5000/stocks');
+    const response = await axios.get('https://flask-api-stocks.onrender.com/stocks');
     setStocks(response.data);
   };
 
   const deleteStock = async (id) => {
-    const response = await axios.delete(`http://localhost:5000/stocks/${id}`);
+    const response = await axios.delete(`https://flask-api-stocks.onrender.com/stocks/${id}`);
     fetchStocks();
   }
 
@@ -33,7 +33,7 @@ function App() {
       }
 
 
-      await axios.post('http://localhost:5000/stocks', newStock);
+      await axios.post('https://flask-api-stocks.onrender.com/stocks', newStock);
       fetchStocks();
     setIsOpen(false);
 
